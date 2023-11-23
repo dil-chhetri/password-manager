@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% load static %}
+{% block section %}
+<div class="container">
+    {% if message %}
+    <div class="alert alert-danger">
+       {{message}}
+    </div>
+    {% endif %}
+    <div class="row d-flex justify-content-center align-items-cente">
+        <form class="col-md-4" action="" method="POST">
+            <h4>Register</h4>
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="exampleInputEmail1">Username</label>
+                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter username" name="username">
+
+              </div>
+            <div class="form-group">
+              <label for="exampleInputEmail1">Email address</label>
+              <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" name="email">
+              <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+            </div>
+            <div class="form-group">
+              <label for="exampleInputPassword1">Password</label>
+              <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" name="password">
+            </div>
+
+            <div class="form-group">
+                <label for="exampleInputPassword1">Confirm Password</label>
+                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" name="__passwordConfirmation">
+              </div>
+
+
+            <button type="submit" class="btn btn-primary">Signup</button>
+            <a href="/login/">I already have an account</a>
+          </form>
+    </div>
+</div>
+{% endblock section %}

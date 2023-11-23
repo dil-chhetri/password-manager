@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% load static %}
+{% block section %}
+<div class="container">
+    {% if message %}
+    <div class="alert alert-danger">
+       {{message}}
+    </div>
+    {% endif %}
+    <div class="row d-flex justify-content-center align-items-cente">
+        <form class="col-md-4" method="POST">
+            {% csrf_token %}
+            <h4>Create a new password database</h4>
+            <div class="form-group">
+                <label for="exampleInputEmail1">Database name</label>
+                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Databasename" name="dbname">
+
+              </div>
+
+            <div class="form-group">
+              <label for="exampleInputPassword1">Database Password</label>
+              <input type="password" class="form-control" id="exampleInputPassword1" placeholder="dbpassword" name="dbpassword">
+            </div>
+
+            <div class="form-group">
+                <label for="exampleInputPassword1">Confirm Password</label>
+                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" name="dbpasswordConfirmation">
+              </div>
+
+ 
+            <button type="submit" class="btn btn-primary">Create</button>
+
+          </form>
+    </div>
+</div>
+{% endblock section %}
