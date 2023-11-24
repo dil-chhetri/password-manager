@@ -29,6 +29,23 @@
              
             </tbody>
           </table>
+            <nav aria-label="Page navigation example">
+              <ul class="pagination">
+                  {% if password_db.has_previous %}
+                <li class="page-item"><a class="page-link" href="/?page=1">First</a></li>
+                <li class="page-item"><a class="page-link" href="/?page={{password_db.previous_page_number}}">Previous</a></li>
+                {% endif %}
+                {% for n in totalPage %}
+                <li class="page-item"><a class="page-link" href="/?page={{n}}">{{n}}</a></li>
+      
+                {% endfor %}
+                {% if password_db.has_next %}
+                <li class="page-item"><a class="page-link" href="/?page={{password_db.next_page_number}}">Next</a></li>
+                {% endif %}
+                <li class="page-item"><a class="page-link" href="/?page={{lastpage}}">Last</a></li>
+      
+              </ul>
+            </nav>
     </div>
 </div>
 {% endblock section %}
